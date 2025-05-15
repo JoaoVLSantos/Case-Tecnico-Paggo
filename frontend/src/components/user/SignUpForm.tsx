@@ -31,15 +31,17 @@ export default function SignUpForm({ onSuccess }: SignUpFormProps) {
         throw new Error(data.message || 'Erro no cadastro')
       }
 
-      // Exibe mensagem de sucesso
       setSuccess(data.message || 'Cadastro realizado com sucesso!')
 
-      // Após 2s, chama o callback para mudar para Sign In
       setTimeout(() => {
         onSuccess()
       }, 2000)
-    } catch (err: any) {
-      setError(err.message)
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message)
+      } else {
+        setError('Erro desconhecido ao realizar cadastro')
+      }
     } finally {
       setIsLoading(false)
     }
@@ -81,4 +83,3 @@ export default function SignUpForm({ onSuccess }: SignUpFormProps) {
     </form>
   )
 }
-
