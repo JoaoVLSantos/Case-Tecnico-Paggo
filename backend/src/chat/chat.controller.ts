@@ -1,3 +1,4 @@
+// src/chat/chat.controller.ts
 import {
   BadRequestException,
   Controller,

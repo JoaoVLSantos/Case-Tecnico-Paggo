@@ -7,6 +7,7 @@ import { InteractionService } from './interaction.service'
 export class InteractionController {
   constructor(private readonly interactionService: InteractionService) {}
 
+  /** GET /chats/:chatId/interactions */
   @Get()
   findAll(
     @Req() req: any,
@@ -19,6 +20,7 @@ export class InteractionController {
     return this.interactionService.findAllByChat(req.user.userId, chatIdNum.toString())
   }
 
+  /** DELETE /chats/:chatId/interactions/:id */
   @Delete(':id')
   remove(
     @Req() req: any,

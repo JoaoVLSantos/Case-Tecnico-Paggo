@@ -2,6 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { AiApiController } from './ai-api.controller';
 import { AiApiService } from './ai-api.service';
 import { CompleteDto } from './dto/complete.dto';
+import { HttpStatus, HttpCode } from '@nestjs/common';
 
 describe('AiApiController', () => {
   let controller: AiApiController;

@@ -1,3 +1,4 @@
+// src/chat/chat.service.spec.ts
 import { Test, TestingModule } from '@nestjs/testing'
 import {
   ChatService,
@@ -18,7 +19,7 @@ describe('ChatService', () => {
   let ai: any
 
   beforeEach(async () => {
-    
+    // mocks para Prisma, OCR e AI
     prisma = {
       chat: {
         create: jest.fn(),
@@ -57,7 +58,7 @@ describe('ChatService', () => {
         imageUrl: 'path.png',
         extractedText: 'textoX',
       })
-      
+      // firstAnswer e title
       ai.complete
         .mockResolvedValueOnce('meu resumo')
         .mockResolvedValueOnce('MeuTítulo')
@@ -97,7 +98,7 @@ describe('ChatService', () => {
       prisma.chat.update.mockResolvedValue({})
 
       const res = await service.createChat('u2', 'p')
-      
+      // fallback são as 4 primeiras palavras
       expect(res.title).toBe('isto é um resumo')
     })
 
@@ -113,7 +114,7 @@ describe('ChatService', () => {
 
   describe('sendMessage', () => {
     beforeEach(() => {
-      
+      // reset mocks
       jest.clearAllMocks()
     })
 
