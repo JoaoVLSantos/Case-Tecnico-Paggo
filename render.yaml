@@ -4,7 +4,7 @@ services:
   # ─── Backend Nest.js ────────────────────────────────────────────────
   - name: paggo-backend
     type: web
-    plan: starter
+    plan: hobby
     region: oregon
     branch: main
     runtime: node
@@ -33,7 +33,7 @@ services:
   # ─── Frontend Next.js ────────────────────────────────────────────────
   - name: paggo-frontend
     type: web
-    plan: starter
+    plan: hobby
     region: oregon
     branch: main
     runtime: node
@@ -56,4 +56,4 @@ services:
 databases:
   - name: paggo-db
     region: oregon
-    plan: standard-0 
+    plan: hobby 
