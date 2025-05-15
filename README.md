@@ -115,10 +115,10 @@ npm install
 
 ### ⚙️ Variáveis de ambiente
 
-O arquivo `.env.local` na pasta `frontend`:
+Atualize o arquivo `.env.local` na pasta `frontend`:
 
 ```env
-NEXT_PUBLIC_API_URL=http://localhost:3000/api
+NEXT_PUBLIC_API_URL=http://localhost:3001/api
 ```
 
 ### 🚀 Rodar em modo desenvolvimento
