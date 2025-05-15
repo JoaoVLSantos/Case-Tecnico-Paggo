@@ -1,5 +1,3 @@
-// src/app.service.ts
-
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { PrismaService } from 'src/prisma/prisma.service';
@@ -15,7 +13,7 @@ export class AppService {
     private readonly config: ConfigService,
     private readonly ai: AiApiService,
   ) {
-    // expõe o client interno da AiApiService para health-check
+
     this.openaiClient = this.ai['client'];
   }
 
@@ -26,7 +24,7 @@ export class AppService {
     environment: string;
     port: number;
   }> {
-    // 1) DB health
+
     let dbConnection = true;
     try {
       await this.prisma.$queryRaw`SELECT 1`;
@@ -34,7 +32,6 @@ export class AppService {
       dbConnection = false;
     }
 
-    // 2) OpenAI health (lista modelos, custa ZERO tokens)
     let openAi = true;
     try {
       await this.openaiClient.models.list();
@@ -42,7 +39,6 @@ export class AppService {
       openAi = false;
     }
 
-    // 3) leitura de vars
     const environment = this.config.get<string>('NODE_ENV') ?? 'development';
     const port = parseInt(this.config.get<string>('PORT') ?? '3000', 10);
 
