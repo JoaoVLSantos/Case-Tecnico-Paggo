@@ -236,7 +236,7 @@ body {
 }
 .user-card.view .pill {
   display: block;
-  background: rgba(212, 175, 55, 0.4); /* dourado claro */
+  background: rgba(212, 175, 55, 0.4); 
   padding: 0.5rem 1rem;
   border-radius: 999px;
   text-align: center;
@@ -308,9 +308,7 @@ body {
 .content-area {
   flex: 1;
   display: flex;
-  /* centraliza verticalmente */
   align-items: center;
-  /* centraliza horizontalmente */
   justify-content: center;
   padding: 1rem;
   overflow: hidden;

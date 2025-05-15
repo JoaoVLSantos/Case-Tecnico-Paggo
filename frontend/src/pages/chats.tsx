@@ -1,4 +1,3 @@
-// pages/chats.tsx
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { ChatUpload } from '@/components/chat/ChatUpload'
@@ -161,7 +160,7 @@ export default function ChatsPage() {
       onSelect={handleSelect}
       onNew={handleNewChat} onPrint={function (): void {
         throw new Error('Function not implemented.')
-      } }      //onPrint={handlePrint}
+      } }      
     >
       {selected ? (
         <ChatContent chatId={selected} />
