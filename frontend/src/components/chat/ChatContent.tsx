@@ -97,7 +97,7 @@ export const ChatContent: FC<Props> = ({ chatId }) => {
 
   const items: { sender: 'ai' | 'user'; content: string }[] = []
 
-  chat.interactions.forEach((intr, idx) => {
+  chat.interactions.forEach((intr) => {
     if (intr.question) items.push({ sender: 'user', content: intr.question })
     items.push({ sender: 'ai', content: intr.answer })
   })

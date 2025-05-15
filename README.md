@@ -18,6 +18,12 @@ Construir um sistema fullstack que permita:
 - Integração com LLM (ex: OpenAI GPT-4) para responder perguntas e explicar dados
 - Histórico de documentos enviados
 
+## 🔗 Acesso à aplicação
+
+- 🔐 **Backend (API NestJS)**: [`https://paggo-backend-700c.onrender.com`](https://paggo-backend-700c.onrender.com)
+- 🖥️ **Frontend (Next.js)**: [`https://paggo-frontend-ps59.onrender.com`](https://paggo-frontend-ps59.onrender.com)
+
+
 ## 🏗️ Estrutura do Projeto
 
 ```
