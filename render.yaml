@@ -1,12 +1,15 @@
-# ─── Serviços (Web) ─────────────────────────────────────────────────────
+# ─── Render Blueprint for monorepo ────────────────────────────────────
+
 services:
-  # Backend Nest.js
+  # ─── Backend Nest.js ────────────────────────────────────────────────
   - name: paggo-backend
     type: web
-    plan: starter
+    plan: free
     region: oregon
     branch: main
     runtime: node
+
+    # build & start inside `backend/`
     buildCommand: |
       cd backend
       npm install --legacy-peer-deps
@@ -14,6 +17,7 @@ services:
     startCommand: |
       cd backend
       npm run start:prod
+
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -26,13 +30,15 @@ services:
       - key: OPENAI_API_KEY
         value: "${OPENAI_API_KEY}"
 
-  # Frontend Next.js
+  # ─── Frontend Next.js ────────────────────────────────────────────────
   - name: paggo-frontend
     type: web
-    plan: starter
+    plan: free
     region: oregon
     branch: main
     runtime: node
+
+    # build & start inside `frontend/`
     buildCommand: |
       cd frontend
       npm install --legacy-peer-deps
@@ -40,12 +46,14 @@ services:
     startCommand: |
       cd frontend
       npm run start
+
     envVars:
       - key: NEXT_PUBLIC_API_URL
         value: "https://paggo-backend.onrender.com"
 
-# ─── Banco de dados Postgres gerenciado ─────────────────────────────────
+
+# ─── Managed Postgres Database ────────────────────────────────────────
 databases:
   - name: paggo-db
-    plan: starter
-
+    region: oregon
+    plan: free
