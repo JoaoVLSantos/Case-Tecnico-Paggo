@@ -55,4 +55,6 @@ services:
 # ─── Managed Postgres Database ────────────────────────────────────────
 databases:
   - name: paggo-db
-    plan: starter
+    engine: postgres
+    region: oregon
+    plan: standard-0 
