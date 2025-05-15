@@ -36,25 +36,9 @@ Construir um sistema fullstack que permita:
 ### 📌 Pré-requisitos
 
 - Node.js (v20+)
-- npm ou Yarn
+- npm
 - Conta e API key do [OCR.space](https://ocr.space/) e [OpenAI](https://platform.openai.com/)
 - Banco de dados PostgreSQL configurado
-
-## 🐳 Banco de Dados (PostgreSQL)
-
-### Usando pgAdmin
-
-1. Abra o pgAdmin e conecte-se ao servidor PostgreSQL local.
-2. Clique com o botão direito em "Databases" > "Create" > "Database".
-3. No campo **Database name**, digite: `paggo`
-4. Vá até a aba **"Privileges"** e adicione um usuário chamado `paggo` com a senha `paggo` (ou configure conforme seu `.env`).
-5. Clique em **Save** para criar o banco.
-
-Certifique-se de que o seu arquivo `.env` do backend contenha:
-
-```env
-DATABASE_URL="postgresql://paggo:paggo@localhost:5432/paggo"
-```
 
 ## 🧠 Backend – NestJS + Prisma
 
@@ -81,18 +65,44 @@ OPENAI_API_KEY="sua_chave_openai"
 
 ### 🛠️ Configurar Prisma
 
+Ainda no ./backend
 ```bash
-npx prisma generate
 npx prisma migrate dev --name init
 ```
 
 ### 🚀 Iniciar API em modo dev
 
+Ainda no ./backend
 ```bash
 npm run start:dev
 ```
 
 A API estará disponível em: `http://localhost:3000`
+
+## 🐳 Banco de Dados (PostgreSQL)
+
+# Sugestão de configuração do banco de dados
+
+### Usando pgAdmin
+
+1. Abra o pgAdmin e conecte-se ao servidor PostgreSQL local.
+2. Clique com o botão direito em "Login/Group Roles" > "Create" > "Login/Group Roles".
+3. No campo **Name**, digite: `paggo`.
+4. Vá até a aba **"Definition"** e no campo **Password**, digite: `paggo`.
+5. Clique em **Save** para criar o Login/Group Roles.
+6. Vá até a aba **"Privileges"** e selecione "Can login?" e "Superuser?".
+7. Clique com o botão direito em "Databases" > "Create" > "Database".
+8. No campo **Database**, digite: `paggo`
+9. No campo **Owner** selecione o `paggo`.
+10. Clique em **Save** para criar o banco.
+
+Certifique-se de que o seu arquivo `.env` do backend contenha:
+
+```env
+DATABASE_URL="postgresql://paggo:paggo@localhost:5432/paggo"
+```
+
+Caso queira configurar de outra forma ou seu postgresql esteja rodando em outra porta, configure o `.env`.
 
 ## 💻 Frontend – Next.js
 
@@ -113,6 +123,7 @@ NEXT_PUBLIC_API_URL=http://localhost:3000/api
 
 ### 🚀 Rodar em modo desenvolvimento
 
+Ainda no ./frontend
 ```bash
 npm run dev
 ```
