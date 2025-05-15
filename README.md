@@ -61,12 +61,15 @@ npm install
 
 ### ⚙️ Variáveis de ambiente
 
-Atualize o arquivo `.env.example` na pasta `backend`:
+Criar o arquivo `.env` na pasta `backend`:
 
 ```env
 DATABASE_URL="postgresql://paggo:paggo@localhost:5432/paggo"
+
 JWT_SECRET="sua_chave_secreta"
+
 OCR_SPACE_KEY="sua_chave_ocr"
+
 OPENAI_API_KEY="sua_chave_openai"
 ```
 
